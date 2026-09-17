@@ -1,0 +1,459 @@
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+    --background: #f7f5f0;
+    --surface: #ffffff;
+    --surface-soft: #f1efe9;
+
+    --text: #171717;
+    --text-muted: #77736c;
+
+    --accent: #5268e8;
+    --accent-light: #eef0ff;
+
+    --border: #e5e1d9;
+
+    --shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+
+    --radius-large: 28px;
+    --radius-medium: 20px;
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================
+   APPLICATION
+========================================= */
+
+.app {
+    width: 100%;
+    max-width: 520px;
+
+    margin: 0 auto;
+
+    padding:
+        env(safe-area-inset-top)
+        16px
+        80px;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+    min-height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+}
+
+
+.header-icon {
+    font-size: 34px;
+}
+
+
+.header h1 {
+    font-size: 28px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================
+   GROUPE DE SONS
+========================================= */
+
+.sound-group {
+    margin-bottom: 28px;
+
+    padding: 18px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-large);
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================================
+   TITRE DU GROUPE
+========================================= */
+
+.group-title {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    padding: 8px 0 22px;
+}
+
+
+.group-title span {
+    padding: 9px 15px;
+
+    background: var(--accent-light);
+
+    color: var(--accent);
+
+    border-radius: 14px;
+
+    font-size: 20px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   LISTE
+========================================= */
+
+.sound-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+/* =========================================
+   CARTE D'UN SON
+========================================= */
+
+.sound-card {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 30px 20px;
+
+    background: var(--surface-soft);
+
+    border-radius: var(--radius-medium);
+}
+
+
+.sound-list .sound-card + .sound-card {
+    margin-top: 0;
+}
+
+
+/* =========================================
+   SON PRINCIPAL
+========================================= */
+
+.sound {
+    color: var(--accent);
+
+    font-size: clamp(48px, 16vw, 72px);
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   BOUTON AUDIO PRINCIPAL
+========================================= */
+
+.audio-button {
+    width: 76px;
+    height: 76px;
+
+    margin-top: 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    font-size: 31px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 9px 20px rgba(82, 104, 232, 0.25);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        opacity 0.15s ease;
+}
+
+
+.audio-button:active {
+    transform: scale(0.91);
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.word-image {
+    width: min(100%, 250px);
+    height: 190px;
+
+    margin-top: 30px;
+
+    display: block;
+
+    object-fit: contain;
+
+    border-radius: 18px;
+}
+
+
+/* =========================================
+   MOT
+========================================= */
+
+.word {
+    margin-top: 22px;
+
+    color: var(--text);
+
+    font-size: clamp(34px, 11vw, 48px);
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    text-align: center;
+}
+
+
+.word span {
+    color: var(--accent);
+}
+
+
+/* =========================================
+   BOUTON AUDIO DU MOT
+========================================= */
+
+.word-audio-button {
+    width: 58px;
+    height: 58px;
+
+    margin-top: 14px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid var(--accent);
+
+    border-radius: 50%;
+
+    background: var(--surface);
+
+    font-size: 23px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease;
+}
+
+
+.word-audio-button:active {
+    transform: scale(0.9);
+}
+
+
+/* =========================================
+   AUDIO EN COURS
+========================================= */
+
+.audio-button.playing,
+.word-audio-button.playing {
+    animation: audioPulse 0.8s ease infinite alternate;
+}
+
+
+@keyframes audioPulse {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.10);
+    }
+
+}
+
+
+/* =========================================
+   BOUTON RETOUR EN HAUT
+========================================= */
+
+.back-to-top {
+    position: fixed;
+
+    right: 18px;
+    bottom: calc(18px + env(safe-area-inset-bottom));
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--text);
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(15px);
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.back-to-top.visible {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   PETITS TÉLÉPHONES
+========================================= */
+
+@media (max-width: 360px) {
+
+    .app {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+
+    .sound-group {
+        padding: 12px;
+    }
+
+
+    .sound-card {
+        padding: 25px 12px;
+    }
+
+
+    .group-title {
+        gap: 7px;
+    }
+
+
+    .group-title span {
+        padding: 8px 11px;
+
+        font-size: 18px;
+    }
+
+}
+
+
+/* =========================================
+   ACCESSIBILITÉ : MOINS D'ANIMATIONS
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+        scroll-behavior: auto !important;
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+
+}
