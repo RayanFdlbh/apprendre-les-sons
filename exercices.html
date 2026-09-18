@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta name="theme-color" content="#f5f7fb">
+
+    <title>Exercices — Apprendre les sons</title>
+
+    <link rel="stylesheet" href="exercices.css">
+</head>
+
+<body>
+
+    <main class="exercise-app">
+
+        <!-- =========================================
+             NAVIGATION COURS / EXERCICES
+        ========================================== -->
+
+        <nav class="main-tabs">
+
+            <a
+                href="index.html"
+                class="main-tab"
+            >
+                Cours
+            </a>
+
+            <a
+                href="exercices.html"
+                class="main-tab active"
+            >
+                Exercices
+            </a>
+
+        </nav>
+
+
+        <!-- =========================================
+             ÉCRAN DU QUIZ
+        ========================================== -->
+
+        <section
+            id="quizScreen"
+            class="quiz-screen"
+        >
+
+            <!-- PROGRESSION -->
+
+            <header class="quiz-header">
+
+                <div class="quiz-info">
+
+                    <span id="questionNumber">
+                        1 / 10
+                    </span>
+
+                    <span id="score">
+                        0 ✓
+                    </span>
+
+                </div>
+
+
+                <div class="progress-track">
+
+                    <div
+                        id="progressBar"
+                        class="progress-bar"
+                    ></div>
+
+                </div>
+
+            </header>
+
+
+            <!-- QUESTION -->
+
+            <section class="question-area">
+
+                <p class="question-label">
+                    Trouve le bon son
+                </p>
+
+
+                <div
+                    id="targetSound"
+                    class="target-sound"
+                >
+                    ON
+                </div>
+
+
+                <p class="question-help">
+                    Écoute les réponses
+                </p>
+
+            <section
+    id="answersContainer"
+    class="answers-container"
+>
+</section>
+
+
+<!-- BOUTON DE CONFIRMATION -->
+
+<button
+    id="confirmButton"
+    class="confirm-button"
+    type="button"
+    disabled
+    aria-label="Confirmer la réponse"
+>
+    ✓
+</button>
+
+<div
+    id="feedback"
+    class="feedback"
+    aria-live="polite"
+>
+</div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         ÉCRAN DE FIN
+    ========================================== -->
+
+    <section
+        id="resultScreen"
+        class="result-screen"
+    >
+
+        <div class="result-content">
+
+            <div class="result-icon">
+                ✓
+            </div>
+
+
+            <h1>
+                Exercice terminé
+            </h1>
+
+
+            <p>
+                Ton résultat
+            </p>
+
+
+            <div
+                id="finalScore"
+                class="final-score"
+            >
+                10 / 10
+            </div>
+
+
+            <button
+                id="restartButton"
+                class="restart-button"
+            >
+                Recommencer
+            </button>
+
+
+            <a
+                href="index.html"
+                class="course-button"
+            >
+                Retour aux cours
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <script src="exercices.js"></script>
+
+</body>
+
+</html>

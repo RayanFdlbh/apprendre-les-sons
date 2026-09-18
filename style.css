@@ -3,22 +3,22 @@
 ========================================= */
 
 :root {
-    --background: #f7f5f0;
+    --background: #f5f7fb;
     --surface: #ffffff;
-    --surface-soft: #f1efe9;
 
-    --text: #171717;
-    --text-muted: #77736c;
+    --text: #16181d;
+    --text-soft: #747985;
 
-    --accent: #5268e8;
-    --accent-light: #eef0ff;
+    --primary: #5968e8;
+    --primary-light: #eef0ff;
 
-    --border: #e5e1d9;
+    --success: #22a866;
+    --success-light: #eaf8f1;
 
-    --shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+    --border: #e8eaf0;
 
-    --radius-large: 28px;
-    --radius-medium: 20px;
+    --shadow:
+        0 20px 60px rgba(27, 31, 45, 0.09);
 }
 
 
@@ -32,17 +32,14 @@
     box-sizing: border-box;
 }
 
-
-html {
-    scroll-behavior: smooth;
+html,
+body {
+    width: 100%;
+    min-height: 100%;
 }
 
-
 body {
-    min-height: 100vh;
-
     background: var(--background);
-
     color: var(--text);
 
     font-family:
@@ -51,6 +48,8 @@ body {
         "Segoe UI",
         Arial,
         sans-serif;
+
+    overflow: hidden;
 
     -webkit-tap-highlight-color: transparent;
 }
@@ -63,165 +62,242 @@ body {
 .app {
     width: 100%;
     max-width: 520px;
+    height: 100dvh;
 
-    margin: 0 auto;
-
-    padding:
-        env(safe-area-inset-top)
-        16px
-        80px;
-}
-
-
-/* =========================================
-   HEADER
-========================================= */
-
-.header {
-    min-height: 150px;
+    margin: auto;
 
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 
-    gap: 12px;
-}
-
-
-.header-icon {
-    font-size: 34px;
-}
-
-
-.header h1 {
-    font-size: 28px;
-
-    font-weight: 800;
-
-    letter-spacing: 3px;
+    padding:
+        calc(14px + env(safe-area-inset-top))
+        18px
+        calc(16px + env(safe-area-inset-bottom));
 }
 
 
 /* =========================================
-   GROUPE DE SONS
+   NAVIGATION COURS / EXERCICES
 ========================================= */
 
-.sound-group {
-    margin-bottom: 28px;
+.main-tabs {
+    width: 100%;
 
-    padding: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 6px;
+
+    padding: 5px;
+    margin-bottom: 15px;
+
+    background: #e9ebf2;
+
+    border-radius: 18px;
+
+    flex-shrink: 0;
+}
+
+.main-tab {
+    min-height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    color: var(--text-soft);
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.15s ease;
+}
+
+.main-tab:active {
+    transform: scale(0.97);
+}
+
+.main-tab.active {
+    background: var(--surface);
+
+    color: var(--primary);
+
+    box-shadow:
+        0 4px 14px rgba(0, 0, 0, 0.07);
+}
+
+
+/* =========================================
+   PROGRESSION
+========================================= */
+
+.topbar {
+    flex-shrink: 0;
+}
+
+.topbar-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 9px;
+
+    color: var(--text-soft);
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#percentage {
+    color: var(--primary);
+
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.progress-track {
+    width: 100%;
+    height: 9px;
+
+    background: #e4e7ef;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+
+    background: var(--primary);
+
+    border-radius: inherit;
+
+    transition:
+        width 0.5s cubic-bezier(.22, 1, .36, 1),
+        background 0.3s ease;
+}
+
+
+/* =========================================
+   WIZARD
+========================================= */
+
+.wizard {
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex;
+    align-items: center;
+
+    padding: 14px 0;
+
+    overflow: hidden;
+}
+
+.card-container {
+    width: 100%;
+}
+
+
+/* =========================================
+   CARTE DU SON
+========================================= */
+
+.sound-card {
+    width: 100%;
+
+    padding: 20px 22px 22px;
 
     background: var(--surface);
 
     border: 1px solid var(--border);
 
-    border-radius: var(--radius-large);
+    border-radius: 30px;
 
     box-shadow: var(--shadow);
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease;
 }
 
 
 /* =========================================
-   TITRE DU GROUPE
+   FAMILLE DU SON
 ========================================= */
 
-.group-title {
-    display: flex;
-
+.sound-family {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    flex-wrap: wrap;
+    min-height: 32px;
 
-    gap: 12px;
+    padding: 6px 14px;
+    margin-bottom: 11px;
 
-    padding: 8px 0 22px;
-}
+    border-radius: 999px;
 
+    background: var(--primary-light);
 
-.group-title span {
-    padding: 9px 15px;
+    color: var(--primary);
 
-    background: var(--accent-light);
-
-    color: var(--accent);
-
-    border-radius: 14px;
-
-    font-size: 20px;
+    font-size: 13px;
     font-weight: 800;
 
-    letter-spacing: 1px;
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
 }
 
 
 /* =========================================
-   LISTE
-========================================= */
-
-.sound-list {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 18px;
-}
-
-
-/* =========================================
-   CARTE D'UN SON
-========================================= */
-
-.sound-card {
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    padding: 30px 20px;
-
-    background: var(--surface-soft);
-
-    border-radius: var(--radius-medium);
-}
-
-
-.sound-list .sound-card + .sound-card {
-    margin-top: 0;
-}
-
-
-/* =========================================
-   SON PRINCIPAL
+   GRAPHIE
 ========================================= */
 
 .sound {
-    color: var(--accent);
+    color: var(--primary);
 
-    font-size: clamp(48px, 16vw, 72px);
+    font-size: clamp(52px, 16vw, 76px);
 
     font-weight: 900;
 
     line-height: 1;
 
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+
+    transition: color 0.3s ease;
 }
 
 
 /* =========================================
-   BOUTON AUDIO PRINCIPAL
+   AUDIO DU SON
 ========================================= */
 
-.audio-button {
-    width: 76px;
-    height: 76px;
+.sound-audio {
+    width: 72px;
+    height: 72px;
 
-    margin-top: 18px;
+    margin: 14px auto 15px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -229,24 +305,25 @@ body {
 
     border-radius: 50%;
 
-    background: var(--accent);
+    background: var(--primary);
 
-    font-size: 31px;
+    color: white;
+
+    font-size: 29px;
 
     cursor: pointer;
 
     box-shadow:
-        0 9px 20px rgba(82, 104, 232, 0.25);
+        0 12px 28px rgba(89, 104, 232, 0.28);
 
     transition:
         transform 0.15s ease,
-        box-shadow 0.15s ease,
-        opacity 0.15s ease;
+        background 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-
-.audio-button:active {
-    transform: scale(0.91);
+.sound-audio:active {
+    transform: scale(0.9);
 }
 
 
@@ -254,17 +331,24 @@ body {
    IMAGE
 ========================================= */
 
+.image-container {
+    width: 100%;
+    height: min(25vh, 190px);
+
+    min-height: 130px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 0 10px;
+}
+
 .word-image {
-    width: min(100%, 250px);
-    height: 190px;
-
-    margin-top: 30px;
-
-    display: block;
+    width: 100%;
+    height: 100%;
 
     object-fit: contain;
-
-    border-radius: 18px;
 }
 
 
@@ -273,57 +357,53 @@ body {
 ========================================= */
 
 .word {
-    margin-top: 22px;
-
-    color: var(--text);
-
-    font-size: clamp(34px, 11vw, 48px);
+    font-size: clamp(32px, 10vw, 46px);
 
     font-weight: 900;
 
     letter-spacing: 2px;
 
-    text-align: center;
+    line-height: 1.05;
 }
 
-
 .word span {
-    color: var(--accent);
+    color: var(--primary);
+
+    transition: color 0.3s ease;
 }
 
 
 /* =========================================
-   BOUTON AUDIO DU MOT
+   AUDIO DU MOT
 ========================================= */
 
-.word-audio-button {
-    width: 58px;
-    height: 58px;
+.word-audio {
+    width: 54px;
+    height: 54px;
 
-    margin-top: 14px;
+    margin: 12px auto 0;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
-    border: 2px solid var(--accent);
+    border: 2px solid var(--primary);
 
     border-radius: 50%;
 
-    background: var(--surface);
+    background: var(--primary-light);
 
-    font-size: 23px;
+    font-size: 21px;
 
     cursor: pointer;
 
     transition:
         transform 0.15s ease,
-        background 0.15s ease;
+        background 0.3s ease,
+        border-color 0.3s ease;
 }
 
-
-.word-audio-button:active {
+.word-audio:active {
     transform: scale(0.9);
 }
 
@@ -332,128 +412,489 @@ body {
    AUDIO EN COURS
 ========================================= */
 
-.audio-button.playing,
-.word-audio-button.playing {
-    animation: audioPulse 0.8s ease infinite alternate;
+.playing {
+    animation: audioPulse 0.65s ease infinite alternate;
 }
 
-
 @keyframes audioPulse {
-
     from {
         transform: scale(1);
     }
 
     to {
-        transform: scale(1.10);
+        transform: scale(1.09);
     }
-
 }
 
 
 /* =========================================
-   BOUTON RETOUR EN HAUT
+   SON MAÎTRISÉ
 ========================================= */
 
-.back-to-top {
-    position: fixed;
+.sound-card.mastered {
+    border-color: rgba(34, 168, 102, 0.3);
 
+    background: var(--success-light);
+}
+
+.sound-card.mastered .sound {
+    color: var(--success);
+}
+
+.sound-card.mastered .sound-family {
+    background: #d9f4e6;
+
+    color: var(--success);
+}
+
+.sound-card.mastered .word span {
+    color: var(--success);
+}
+
+.sound-card.mastered .sound-audio {
+    background: var(--success);
+
+    box-shadow:
+        0 12px 28px rgba(34, 168, 102, 0.25);
+}
+
+
+/* =========================================
+   CHECK DE RÉUSSITE
+========================================= */
+
+.success-check {
+    position: absolute;
+
+    top: 18px;
     right: 18px;
-    bottom: calc(18px + env(safe-area-inset-bottom));
 
-    width: 52px;
-    height: 52px;
+    width: 40px;
+    height: 40px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
+    border-radius: 50%;
+
+    background: var(--success);
+
+    color: white;
+
+    font-size: 21px;
+    font-weight: 900;
+
+    opacity: 0;
+
+    transform: scale(0);
+}
+
+.sound-card.mastered .success-check {
+    animation:
+        checkSuccess
+        0.45s
+        ease
+        forwards;
+}
+
+@keyframes checkSuccess {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    65% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================
+   NAVIGATION DU COURS
+========================================= */
+
+.navigation {
+    flex-shrink: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        58px
+        minmax(0, 1fr)
+        58px;
+
+    gap: 10px;
+
+    align-items: center;
+}
+
+.nav-button {
+    width: 58px;
+    height: 58px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 22px rgba(0, 0, 0, 0.05);
+}
+
+.nav-button:active {
+    transform: scale(0.94);
+}
+
+.nav-button:disabled {
+    opacity: 0.25;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   BOUTON J'AI COMPRIS
+========================================= */
+
+.validate-button {
+    height: 60px;
+
     border: none;
 
+    border-radius: 19px;
+
+    background: var(--primary);
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    font-size: 16px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 28px rgba(89, 104, 232, 0.23);
+
+    transition:
+        transform 0.15s ease,
+        background 0.25s ease;
+}
+
+.validate-button:active {
+    transform: scale(0.97);
+}
+
+.validate-button.validated {
+    background: var(--success);
+}
+
+.validate-icon {
+    width: 27px;
+    height: 27px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* =========================================
+   TRANSITIONS ENTRE LES SONS
+========================================= */
+
+.slide-out-left {
+    animation:
+        slideOutLeft
+        0.38s
+        cubic-bezier(.4, 0, .2, 1)
+        forwards;
+}
+
+.slide-out-right {
+    animation:
+        slideOutRight
+        0.38s
+        cubic-bezier(.4, 0, .2, 1)
+        forwards;
+}
+
+.slide-in-right {
+    animation:
+        slideInRight
+        0.42s
+        cubic-bezier(.22, 1, .36, 1);
+}
+
+.slide-in-left {
+    animation:
+        slideInLeft
+        0.42s
+        cubic-bezier(.22, 1, .36, 1);
+}
+
+@keyframes slideOutLeft {
+    to {
+        opacity: 0;
+        transform: translateX(-110%);
+    }
+}
+
+@keyframes slideOutRight {
+    to {
+        opacity: 0;
+        transform: translateX(110%);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(110%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-110%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* =========================================
+   ÉCRAN FINAL
+========================================= */
+
+.success-screen {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background: var(--background);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+}
+
+.success-screen.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.success-content {
+    width: 100%;
+    max-width: 420px;
+
+    text-align: center;
+}
+
+.success-icon {
+    width: 100px;
+    height: 100px;
+
+    margin: 0 auto 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--success);
+
+    color: white;
+
+    font-size: 50px;
+    font-weight: 900;
+
+    box-shadow:
+        0 18px 40px rgba(34, 168, 102, 0.25);
+}
+
+.success-content h1 {
+    font-size: 42px;
+
+    margin-bottom: 10px;
+}
+
+.success-content p {
+    color: var(--text-soft);
+
+    font-size: 17px;
+}
+
+.success-progress {
+    margin: 25px 0;
+
+    color: var(--success);
+
+    font-size: 55px;
+    font-weight: 900;
+}
+
+.restart-button {
+    width: 100%;
+    height: 62px;
+
+    border: none;
+
+    border-radius: 19px;
 
     background: var(--text);
 
     color: white;
 
-    font-size: 25px;
+    font-size: 16px;
+    font-weight: 800;
 
     cursor: pointer;
-
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-
-    opacity: 0;
-    visibility: hidden;
-
-    transform: translateY(15px);
-
-    transition:
-        opacity 0.25s ease,
-        visibility 0.25s ease,
-        transform 0.25s ease;
-}
-
-
-.back-to-top.visible {
-    opacity: 1;
-
-    visibility: visible;
-
-    transform: translateY(0);
 }
 
 
 /* =========================================
-   PETITS TÉLÉPHONES
+   PETITS ÉCRANS
 ========================================= */
 
-@media (max-width: 360px) {
+@media (max-height: 720px) {
 
     .app {
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-top:
+            calc(8px + env(safe-area-inset-top));
+
+        padding-bottom:
+            calc(8px + env(safe-area-inset-bottom));
     }
 
-
-    .sound-group {
-        padding: 12px;
+    .main-tabs {
+        margin-bottom: 8px;
     }
 
+    .main-tab {
+        min-height: 40px;
+
+        font-size: 14px;
+    }
+
+    .wizard {
+        padding: 8px 0;
+    }
 
     .sound-card {
-        padding: 25px 12px;
+        padding: 14px 18px;
     }
 
-
-    .group-title {
-        gap: 7px;
+    .sound-family {
+        margin-bottom: 6px;
     }
 
-
-    .group-title span {
-        padding: 8px 11px;
-
-        font-size: 18px;
+    .sound {
+        font-size: 48px;
     }
 
+    .sound-audio {
+        width: 58px;
+        height: 58px;
+
+        margin: 8px auto;
+
+        font-size: 24px;
+    }
+
+    .image-container {
+        height: 115px;
+        min-height: 115px;
+
+        margin-bottom: 6px;
+    }
+
+    .word {
+        font-size: 32px;
+    }
+
+    .word-audio {
+        width: 46px;
+        height: 46px;
+
+        margin-top: 7px;
+    }
+
+    .navigation {
+        grid-template-columns:
+            52px
+            minmax(0, 1fr)
+            52px;
+    }
+
+    .nav-button {
+        width: 52px;
+        height: 52px;
+    }
+
+    .validate-button {
+        height: 54px;
+    }
 }
 
 
 /* =========================================
-   ACCESSIBILITÉ : MOINS D'ANIMATIONS
+   ACCESSIBILITÉ
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
-    * {
-        scroll-behavior: auto !important;
-
+    *,
+    *::before,
+    *::after {
         animation-duration: 0.01ms !important;
 
         animation-iteration-count: 1 !important;
 
         transition-duration: 0.01ms !important;
     }
-
 }
