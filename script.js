@@ -690,13 +690,18 @@ function validateCurrentLesson() {
         document.querySelector(".sound-card");
 
 
+    if (!card) {
+        return;
+    }
+
+
     const isAlreadyMastered =
         masteredLessons.includes(currentIndex);
 
 
     // =================================================
-    // DÉJÀ MAÎTRISÉ
-    // → LE SECOND CLIC ANNULE
+    // SI LE SON EST DÉJÀ MAÎTRISÉ
+    // → SECOND CLIC = ANNULER LA MAÎTRISE
     // =================================================
 
     if (isAlreadyMastered) {
@@ -721,7 +726,7 @@ function validateCurrentLesson() {
 
 
     // =================================================
-    // PAS ENCORE MAÎTRISÉ
+    // NOUVEAU SON MAÎTRISÉ
     // =================================================
 
     masteredLessons.push(currentIndex);
@@ -746,13 +751,25 @@ function validateCurrentLesson() {
     }
 
 
+    // =================================================
+    // ATTENDRE UN PEU POUR VOIR LE ✓ VERT
+    // PUIS SWIPE AUTOMATIQUE
+    // =================================================
+
     transitionRunning = true;
 
 
-    // On laisse apparaître l'animation verte
-    // avant de passer automatiquement au suivant.
-
     setTimeout(() => {
+
+        // IMPORTANT :
+        // on libère le verrou AVANT d'appeler goToLesson()
+
+        transitionRunning = false;
+
+
+        // =================================================
+        // S'IL RESTE UNE LEÇON
+        // =================================================
 
         if (
             currentIndex <
@@ -764,15 +781,20 @@ function validateCurrentLesson() {
                 "right"
             );
 
-        } else {
+        }
+
+
+        // =================================================
+        // DERNIÈRE LEÇON
+        // =================================================
+
+        else {
 
             showSuccess();
 
-            transitionRunning = false;
-
         }
 
-    }, 850);
+    }, 650);
 
 }
 
@@ -809,9 +831,16 @@ function goToLesson(newIndex, direction) {
 
     card.classList.remove(
         "slide-in-right",
-        "slide-in-left"
+        "slide-in-left",
+        "slide-out-left",
+        "slide-out-right"
     );
 
+
+    // =================================================
+    // SUIVANT
+    // → LA CARTE PART VERS LA GAUCHE
+    // =================================================
 
     if (direction === "right") {
 
@@ -819,7 +848,15 @@ function goToLesson(newIndex, direction) {
             "slide-out-left"
         );
 
-    } else {
+    }
+
+
+    // =================================================
+    // PRÉCÉDENT
+    // → LA CARTE PART VERS LA DROITE
+    // =================================================
+
+    else {
 
         card.classList.add(
             "slide-out-right"
@@ -946,7 +983,9 @@ function handleSwipe() {
     }
 
 
-    // Gauche → suivant
+    // =================================================
+    // SWIPE GAUCHE → SUIVANT
+    // =================================================
 
     if (
         horizontalDistance > 0 &&
@@ -961,7 +1000,9 @@ function handleSwipe() {
     }
 
 
-    // Droite → précédent
+    // =================================================
+    // SWIPE DROITE → PRÉCÉDENT
+    // =================================================
 
     if (
         horizontalDistance < 0 &&
@@ -983,6 +1024,8 @@ function handleSwipe() {
 // =====================================================
 
 function showSuccess() {
+
+    stopCurrentAudio();
 
     successScreen.classList.add("visible");
 

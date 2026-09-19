@@ -65,10 +65,239 @@ const sounds = [
 
 
 // =====================================================
+// EXEMPLES IMAGE + MOT + AUDIO
+// APRÈS UNE BONNE RÉPONSE
+// =====================================================
+
+const examples = {
+
+    "O": {
+        wordHTML: "M<span>O</span>T",
+        image: "mot.png",
+        audio: "mot.mp3"
+    },
+
+    "AU": {
+        wordHTML: "<span>AU</span>TO",
+        image: "auto.png",
+        audio: "auto.mp3"
+    },
+
+    "EAU": {
+        wordHTML: "<span>EAU</span>",
+        image: "eau.png",
+        audio: "mot-eau.mp3"
+    },
+
+    "OU": {
+        wordHTML: "L<span>OU</span>P",
+        image: "loup.png",
+        audio: "loup.mp3"
+    },
+
+    "AN": {
+        wordHTML: "G<span>AN</span>T",
+        image: "gant.png",
+        audio: "gant.mp3"
+    },
+
+    "EN": {
+        wordHTML: "D<span>EN</span>T",
+        image: "dent.png",
+        audio: "dent.mp3"
+    },
+
+    "ON": {
+        wordHTML: "P<span>ON</span>T",
+        image: "pont.png",
+        audio: "pont.mp3"
+    },
+
+    "IN": {
+        wordHTML: "LAP<span>IN</span>",
+        image: "lapin.png",
+        audio: "lapin.mp3"
+    },
+
+    "AIN": {
+        wordHTML: "M<span>AIN</span>",
+        image: "main.png",
+        audio: "main.mp3"
+    },
+
+    "EIN": {
+        wordHTML: "P<span>EIN</span>T",
+        image: "peint.png",
+        audio: "peint.mp3"
+    },
+
+    "OI": {
+        wordHTML: "<span>OI</span>E",
+        image: "oie.png",
+        audio: "oie.mp3"
+    },
+
+    "OIN": {
+        wordHTML: "C<span>OIN</span>",
+        image: "coin.png",
+        audio: "coin.mp3"
+    },
+
+    "UI": {
+        wordHTML: "N<span>UI</span>T",
+        image: "nuit.png",
+        audio: "nuit.mp3"
+    },
+
+    "É": {
+        wordHTML: "D<span>É</span>",
+        image: "de.png",
+        audio: "de.mp3"
+    },
+
+    "ER": {
+        wordHTML: "PAPI<span>ER</span>",
+        image: "papier.png",
+        audio: "papier.mp3"
+    },
+
+    "EZ": {
+        wordHTML: "N<span>EZ</span>",
+        image: "nez.png",
+        audio: "nez.mp3"
+    },
+
+    "È": {
+        wordHTML: "P<span>È</span>RE",
+        image: "pere.png",
+        audio: "pere.mp3"
+    },
+
+    "Ê": {
+        wordHTML: "T<span>Ê</span>TE",
+        image: "tete.png",
+        audio: "tete.mp3"
+    },
+
+    "AI": {
+        wordHTML: "L<span>AI</span>T",
+        image: "lait.png",
+        audio: "lait.mp3"
+    },
+
+    "EI": {
+        wordHTML: "N<span>EI</span>GE",
+        image: "neige.png",
+        audio: "neige.mp3"
+    },
+
+    "EU": {
+        wordHTML: "F<span>EU</span>",
+        image: "feu.png",
+        audio: "feu.mp3"
+    },
+
+    "ŒU": {
+        wordHTML: "<span>ŒU</span>F",
+        image: "oeuf.png",
+        audio: "oeuf.mp3"
+    },
+
+    "CH": {
+        wordHTML: "<span>CH</span>AT",
+        image: "chat.png",
+        audio: "chat.mp3"
+    },
+
+    "GN": {
+        wordHTML: "A<span>GN</span>EAU",
+        image: "agneau.png",
+        audio: "agneau.mp3"
+    },
+
+    "F": {
+        wordHTML: "<span>F</span>OUR",
+        image: "four.png",
+        audio: "four.mp3"
+    },
+
+    "PH": {
+        wordHTML: "<span>PH</span>OTO",
+        image: "photo.png",
+        audio: "photo.mp3"
+    },
+
+    "K": {
+        wordHTML: "<span>K</span>IWI",
+        image: "kiwi.png",
+        audio: "kiwi.mp3"
+    },
+
+    "C": {
+        wordHTML: "<span>C</span>OLLE",
+        image: "colle.png",
+        audio: "colle.mp3"
+    },
+
+    "QU": {
+        wordHTML: "<span>QU</span>ATRE",
+        image: "quatre.png",
+        audio: "quatre.mp3"
+    },
+
+    "S": {
+        wordHTML: "<span>S</span>AC",
+        image: "sac.png",
+        audio: "sac.mp3"
+    },
+
+    "SS": {
+        wordHTML: "TA<span>SS</span>E",
+        image: "tasse.png",
+        audio: "tasse.mp3"
+    },
+
+    "Ç": {
+        wordHTML: "GAR<span>Ç</span>ON",
+        image: "garcon.png",
+        audio: "garcon.mp3"
+    },
+
+    "Z": {
+        wordHTML: "<span>Z</span>OO",
+        image: "zoo.png",
+        audio: "zoo.mp3"
+    },
+
+    "J": {
+        wordHTML: "<span>J</span>UPE",
+        image: "jupe.png",
+        audio: "jupe.mp3"
+    },
+
+    "G": {
+        wordHTML: "<span>G</span>ILET",
+        image: "gilet.png",
+        audio: "gilet.mp3"
+    },
+
+    "GU": {
+        wordHTML: "BA<span>GU</span>E",
+        image: "bague.png",
+        audio: "bague.mp3"
+    }
+
+};
+
+
+// =====================================================
 // CONFIGURATION
 // =====================================================
 
 const TOTAL_QUESTIONS = 10;
+
+// Temps d'affichage du mot après une bonne réponse
+const EXAMPLE_DISPLAY_TIME = 3000;
 
 
 // =====================================================
@@ -267,7 +496,12 @@ function generateQuestion() {
     stopCurrentAudio();
 
 
-    // On efface complètement le feedback précédent
+    // Supprimer une éventuelle ancienne carte exemple
+
+    removeExampleCard();
+
+
+    // Effacer le feedback précédent
 
     feedback.textContent = "";
 
@@ -474,7 +708,7 @@ confirmButton.addEventListener(
 
 
 // =====================================================
-// AUDIO
+// AUDIO DES CHOIX
 // =====================================================
 
 function stopCurrentAudio() {
@@ -505,6 +739,10 @@ function stopCurrentAudio() {
 }
 
 
+// =====================================================
+// JOUER LE SON D'UNE RÉPONSE
+// =====================================================
+
 function playSound(
     audioFile,
     button
@@ -519,9 +757,13 @@ function playSound(
         );
 
 
-    button.classList.add(
-        "playing"
-    );
+    if (button) {
+
+        button.classList.add(
+            "playing"
+        );
+
+    }
 
 
     currentAudio
@@ -535,9 +777,13 @@ function playSound(
             );
 
 
-            button.classList.remove(
-                "playing"
-            );
+            if (button) {
+
+                button.classList.remove(
+                    "playing"
+                );
+
+            }
 
 
             currentAudio = null;
@@ -549,15 +795,378 @@ function playSound(
         "ended",
         () => {
 
-            button.classList.remove(
-                "playing"
-            );
+            if (button) {
+
+                button.classList.remove(
+                    "playing"
+                );
+
+            }
 
 
             currentAudio = null;
 
         }
     );
+
+}
+
+
+// =====================================================
+// JOUER AUTOMATIQUEMENT LE MOT
+// =====================================================
+
+function playExampleWord(audioFile) {
+
+    stopCurrentAudio();
+
+
+    currentAudio =
+        new Audio(
+            `assets/audio/${audioFile}`
+        );
+
+
+    currentAudio
+        .play()
+        .catch(error => {
+
+            console.error(
+                "Impossible de lire le mot :",
+                audioFile,
+                error
+            );
+
+            currentAudio = null;
+
+        });
+
+
+    currentAudio.addEventListener(
+        "ended",
+        () => {
+
+            currentAudio = null;
+
+        }
+    );
+
+}
+
+
+// =====================================================
+// SUPPRIMER LA CARTE EXEMPLE
+// =====================================================
+
+function removeExampleCard() {
+
+    const oldCard =
+        document.querySelector(
+            ".exercise-example-overlay"
+        );
+
+
+    if (oldCard) {
+
+        oldCard.remove();
+
+    }
+
+}
+
+
+// =====================================================
+// AFFICHER IMAGE + MOT PENDANT 3 SECONDES
+// =====================================================
+
+function showExampleCard(soundLabel) {
+
+    const example =
+        examples[soundLabel];
+
+
+    if (!example) {
+
+        console.warn(
+            "Aucun exemple trouvé pour :",
+            soundLabel
+        );
+
+        return;
+    }
+
+
+    removeExampleCard();
+
+
+    // =================================================
+    // CRÉATION DE L'OVERLAY
+    // =================================================
+
+    const overlay =
+        document.createElement("div");
+
+
+    overlay.className =
+        "exercise-example-overlay";
+
+
+    // =================================================
+    // STYLE DE L'OVERLAY
+    // Directement ici pour ne pas modifier le CSS
+    // =================================================
+
+    Object.assign(
+        overlay.style,
+        {
+            position: "fixed",
+            inset: "0",
+            zIndex: "9999",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "24px",
+            background: "rgba(245, 247, 251, 0.94)",
+            backdropFilter: "blur(8px)",
+            WebkitBackdropFilter: "blur(8px)",
+            opacity: "0",
+            transition: "opacity 0.25s ease"
+        }
+    );
+
+
+    // =================================================
+    // CARTE BLANCHE
+    // =================================================
+
+    const card =
+        document.createElement("div");
+
+
+    card.className =
+        "exercise-example-card";
+
+
+    Object.assign(
+        card.style,
+        {
+            width: "min(360px, 90vw)",
+            minHeight: "390px",
+            background: "#ffffff",
+            borderRadius: "32px",
+            padding: "28px 24px",
+            boxShadow:
+                "0 20px 60px rgba(20, 30, 70, 0.18)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "18px",
+            transform: "scale(0.82) translateY(20px)",
+            opacity: "0",
+            transition:
+                "transform 0.35s cubic-bezier(.2,.8,.2,1), opacity 0.35s ease"
+        }
+    );
+
+
+    // =================================================
+    // ✓
+    // =================================================
+
+    const check =
+        document.createElement("div");
+
+
+    check.textContent = "✓";
+
+
+    Object.assign(
+        check.style,
+        {
+            width: "62px",
+            height: "62px",
+            borderRadius: "50%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "#e9f8f0",
+            color: "#22a866",
+            fontSize: "36px",
+            fontWeight: "900"
+        }
+    );
+
+
+    // =================================================
+    // IMAGE
+    // =================================================
+
+    const image =
+        document.createElement("img");
+
+
+    image.src =
+        `assets/images/${example.image}`;
+
+
+    image.alt =
+        example.wordHTML.replace(
+            /<[^>]*>/g,
+            ""
+        );
+
+
+    Object.assign(
+        image.style,
+        {
+            width: "180px",
+            height: "180px",
+            objectFit: "contain",
+            display: "block"
+        }
+    );
+
+
+    // =================================================
+    // MOT
+    // =================================================
+
+    const word =
+        document.createElement("div");
+
+
+    word.innerHTML =
+        example.wordHTML;
+
+
+    Object.assign(
+        word.style,
+        {
+            fontSize: "42px",
+            lineHeight: "1",
+            fontWeight: "900",
+            letterSpacing: "2px",
+            color: "#22283d",
+            textAlign: "center"
+        }
+    );
+
+
+    // Mettre la graphie étudiée en vert
+
+    word
+        .querySelectorAll("span")
+        .forEach(span => {
+
+            span.style.color =
+                "#22a866";
+
+        });
+
+
+    // =================================================
+    // PETIT BOUTON AUDIO
+    // =================================================
+
+    const audioButton =
+        document.createElement("button");
+
+
+    audioButton.type =
+        "button";
+
+
+    audioButton.textContent =
+        "🔊";
+
+
+    audioButton.setAttribute(
+        "aria-label",
+        "Réécouter le mot"
+    );
+
+
+    Object.assign(
+        audioButton.style,
+        {
+            width: "64px",
+            height: "64px",
+            border: "none",
+            borderRadius: "20px",
+            background: "#eef0ff",
+            fontSize: "28px",
+            cursor: "pointer"
+        }
+    );
+
+
+    audioButton.addEventListener(
+        "click",
+        event => {
+
+            event.stopPropagation();
+
+            playExampleWord(
+                example.audio
+            );
+
+        }
+    );
+
+
+    // =================================================
+    // ASSEMBLAGE
+    // =================================================
+
+    card.appendChild(check);
+
+    card.appendChild(image);
+
+    card.appendChild(word);
+
+    card.appendChild(audioButton);
+
+
+    overlay.appendChild(card);
+
+
+    document.body.appendChild(
+        overlay
+    );
+
+
+    // =================================================
+    // ANIMATION D'ENTRÉE
+    // =================================================
+
+    requestAnimationFrame(() => {
+
+        overlay.style.opacity =
+            "1";
+
+
+        card.style.opacity =
+            "1";
+
+
+        card.style.transform =
+            "scale(1) translateY(0)";
+
+    });
+
+
+    // =================================================
+    // PRONONCER AUTOMATIQUEMENT LE MOT
+    // =================================================
+
+    setTimeout(() => {
+
+        playExampleWord(
+            example.audio
+        );
+
+    }, 250);
 
 }
 
@@ -590,6 +1199,9 @@ function checkAnswer(
         questionLocked = true;
 
         confirmButton.disabled = true;
+
+
+        stopCurrentAudio();
 
 
         button.classList.remove(
@@ -636,7 +1248,8 @@ function checkAnswer(
         // FEEDBACK VISUEL ✓
         // =============================================
 
-        feedback.textContent = "✓";
+        feedback.textContent =
+            "✓";
 
 
         feedback.classList.remove(
@@ -650,7 +1263,9 @@ function checkAnswer(
         );
 
 
-        // Bloquer les cartes
+        // =============================================
+        // BLOQUER LES CARTES
+        // =============================================
 
         const allButtons =
             answersContainer.querySelectorAll(
@@ -678,28 +1293,50 @@ function checkAnswer(
 
 
         // =============================================
-        // QUESTION SUIVANTE
+        // PETITE PAUSE POUR VOIR LA BONNE RÉPONSE
         // =============================================
 
         setTimeout(() => {
 
-            currentQuestion++;
+            // =========================================
+            // IMAGE + MOT + AUDIO
+            // =========================================
+
+            showExampleCard(
+                currentSound.label
+            );
 
 
-            if (
-                currentQuestion >=
-                TOTAL_QUESTIONS
-            ) {
+            // =========================================
+            // LE MOT RESTE EXACTEMENT 3 SECONDES
+            // =========================================
 
-                showResults();
+            setTimeout(() => {
 
-            } else {
+                removeExampleCard();
 
-                generateQuestion();
+                stopCurrentAudio();
 
-            }
 
-        }, 1000);
+                currentQuestion++;
+
+
+                if (
+                    currentQuestion >=
+                    TOTAL_QUESTIONS
+                ) {
+
+                    showResults();
+
+                } else {
+
+                    generateQuestion();
+
+                }
+
+            }, EXAMPLE_DISPLAY_TIME);
+
+        }, 500);
 
     }
 
@@ -736,10 +1373,10 @@ function checkAnswer(
 
         // =============================================
         // UNIQUEMENT UNE CROIX ROUGE
-        // AUCUN TEXTE
         // =============================================
 
-        feedback.textContent = "✕";
+        feedback.textContent =
+            "✕";
 
 
         feedback.classList.remove(
@@ -777,9 +1414,7 @@ function checkAnswer(
 
         // =============================================
         // APRÈS 700 MS :
-        // - retirer le rouge de la carte
-        // - retirer la croix
-        // - permettre un nouvel essai
+        // RETIRER LE ROUGE ET LA CROIX
         // =============================================
 
         setTimeout(() => {
@@ -789,7 +1424,8 @@ function checkAnswer(
             );
 
 
-            feedback.textContent = "";
+            feedback.textContent =
+                "";
 
 
             feedback.classList.remove(
@@ -846,6 +1482,8 @@ function showResults() {
 
     stopCurrentAudio();
 
+    removeExampleCard();
+
 
     progressBar.style.width =
         "100%";
@@ -872,6 +1510,11 @@ function showResults() {
 // =====================================================
 
 function restartQuiz() {
+
+    stopCurrentAudio();
+
+    removeExampleCard();
+
 
     currentQuestion = 0;
 
